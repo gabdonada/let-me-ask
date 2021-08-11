@@ -42,7 +42,7 @@ export function AuthContextProvider(props: AuthContextProviderProps){
         })
 
         return () =>{
-        unsubscribe();
+            unsubscribe(); 
         }
     }, []) //what I want to run and when I want to run; when the array is empty it will run once when loading the page for the first time
 
