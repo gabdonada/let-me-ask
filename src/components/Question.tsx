@@ -11,13 +11,20 @@ type QuestionProps = {
     };
 
     children?: ReactNode;
-
+    isAnswered?: boolean;
+    isHighlighted?: boolean;
 
 }
 
-export function Question({children, content, author}: QuestionProps){ //use {content, author} instead of props in order to unstructure the data and use just the details needed
+export function Question({
+    children,
+    content, 
+    author,
+    isAnswered = false,
+    isHighlighted = false
+    }: QuestionProps){ //use {content, author} instead of props in order to unstructure the data and use just the details needed
     return (
-        <div className="question">
+        <div className={`question ${isAnswered ? 'answered': ''} ${isHighlighted ? 'highlighted' : '' && !isAnswered}`}> {/** you can use classnames from NPM (yarn add classnames) */}
             <p>{content}</p>
             <footer>
                 <div className="user-info">

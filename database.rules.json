@@ -1,28 +1,17 @@
-yarn start
-
-yarn add node-sass@^5.0.0
-yarn add react-router-dom        and       yarn add @types/react-router-dom
-
-
-To manager Firebase host:
-npm install -g firebase-tools
-
-
-Firebase roles:
 {
   "rules": {
-    "rooms":{
+    "rooms": {
       ".read": false,
       ".write": "auth != null",
-      "$roomId":{
+      "$roomId": {
         ".read": true,
         ".write": "auth != null && (!data.exists()||data.parent().child('authorId').val() == auth.id)",
         "questions": {
           ".read": true,
           ".write": "auth !=null && (!data.exists()||data.parent().child('authorId').val() == auth.id)",
-        	"likes": {
+          "likes": {
             ".read": true,
-            ".write":"auth !=null && (!data.exists()||data.parent().child('authorId').val() == auth.id)"
+            ".write": "auth !=null && (!data.exists()||data.parent().child('authorId').val() == auth.id)"
           }
         }
       }
